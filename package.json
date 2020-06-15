@@ -1,0 +1,31 @@
+{
+  "name": "@pryv/socket.io",
+  "version": "1.0.0",
+  "description": "Extends `pryv` package with socket.io transport",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --reporter spec  test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pryv/lib-js-socket.io"
+  },
+  "bugs": {
+    "url": "https://github.com/pryv/lib-js-socket.io/issues"
+  },
+  "keywords": [
+    "Pryv.io",
+    "Socket.io"
+  ],
+  "author": "Pryv S.A.",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cuid": "^2.1.8",
+    "mocha": "^8.0.1",
+    "pryv": "file:../lib-js"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.3.0"
+  }
+}
