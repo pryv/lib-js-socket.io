@@ -1,19 +1,25 @@
 /*global 
   Pryv, chai, should, testData, expect, should
 */
-
-//const apiEndpoint = testData.pryvApiEndPoints[0];
-const apiEndpoint = 'https://ckbg78dpy0003zu0s2mixxlhy@my-computer.rec.la:4443/perki/';
-const apiEndpointBogusUsername = 'https://bogus@my-computer.rec.la:4443/perkix/';
-const apiEndpointBogusToken = 'https://bogus@my-computer.rec.la:4443/perki/';
 const cuid = require('cuid');
-
+const { apiEndpointWithToken } = require('../../lib-js/test/test-data');
 
 let conn = null; 
 const testStreamId = 'socket-test';
 
 describe('SocketIO', function () {
   this.timeout(3000);
+  let apiEndpoint; 
+  let apiEndpointBogusToken;
+  let apiEndpointBogusUsername;
+
+  before(async function () {
+    this.timeout(5000);
+    await testData.prepare();
+    apiEndpoint = testData.apiEndpointWithToken;
+    apiEndpointBogusToken = Pryv.Service.buildAPIEndpoint(testData.serviceInfo, testData.username, 'toto');
+    apiEndpointBogusUsername = Pryv.Service.buildAPIEndpoint(testData.serviceInfo, 'totototototo', testData.token);
+  });
 
   before(async () => {
     conn = new Pryv.Connection(apiEndpoint);
@@ -41,7 +47,7 @@ describe('SocketIO', function () {
       throw new Error('Should throw an error');
     });
 
-    it('Should throw an error "Unothorized" when token is invalid', async () => {
+    it('Should throw an error "Unauthorized" when token is invalid', async () => {
       conn = new Pryv.Connection(apiEndpointBogusToken);
       try {
         const res = await conn.socket.open();
