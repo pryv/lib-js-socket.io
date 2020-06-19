@@ -37,14 +37,17 @@ describe('SocketIO', function () {
   });
 
   describe('init on invalid endpoint', () => { 
-    it('Should throw an error "Not Found" when user is not known', async () => {
+    it('Should throw an error "Not Found" or ENOTFOUND when user is not known', async () => {
       conn = new Pryv.Connection(apiEndpointBogusUsername);
       try {
         const res = await conn.socket.open();
       } catch (e) {
-        return expect(e.message).to.equals('Not Found');
+        if (e.message === 'Not Found' || e.message.startsWith('getaddrinfo ENOTFOUND')) {
+          return;
+        }
+        throw 'Error message should be NotFound or ENOTFOUND and recieved: ' + e.message;
       }
-      throw new Error('Should throw an error');
+      throw 'Should throw an error';
     });
 
     it('Should throw an error "Unauthorized" when token is invalid', async () => {

@@ -33,7 +33,7 @@ class SocketIO extends EventEmitter {
         this.connecting = false;
         return reject(e);
       }
-
+     
       
       // handle failure
       for (const errcode of ['connect_error', 'connection_failed', 'error', 'connection_timeout']) {
