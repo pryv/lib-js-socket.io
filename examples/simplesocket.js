@@ -1,7 +1,7 @@
 const Pryv = require('pryv');
 require('../src/')(Pryv);
 
-let apiEndpoint = 'https://ckbg78dpy0003zu0s2mixxlhy@my-computer.rec.la:4443/perki/';
+let apiEndpoint = 'https://ckbcft5ai0004z60sbsmv56mc@my-computer.rec.la:4443/perki/';
 //apiEndpoint = 'https://ckbdyn3dm0003dwnk07yfsqbs@my-computer.rec.la:4443/perki/';
 
 const conn = new Pryv.Connection(apiEndpoint);

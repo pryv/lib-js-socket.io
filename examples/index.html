@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Pryv Socket.io - Javascript</title>
+  <script src="https://api.pryv.com/lib-js/pryv.js"></script>
+  <script src="https://api.pryv.com/lib-js-socket.io/pryv-socket.io.js"></script>
+</head>
+
+<body>
+  <span id="pryv-button"></span>
+  <h5>Notes</h5>
+  <input type='text' id='create-note' placeholder='Content' value='' />
+  <button onClick='createNoteEvent()'>Save Note</button>
+  <h3>Console</h3>
+  <textarea id='console' cols=50 rows=20></textarea>
+
+  <script>
+    // --- usual boiler plate 
+    var $console = document.getElementById('console'),
+      $noteContent = document.getElementById('create-note');
+
+    var connection = null;
+
+    var authSettings = {
+      spanButtonID: 'pryv-button', // span id the DOM that will be replaced by the Service specific button
+      onStateChange: pryvAuthStateChange, // event Listener for Authentication steps
+      authRequest: { // See: https://api.pryv.com/reference/#auth-request
+        requestingAppId: 'lib-js-socket-io',
+        languageCode: 'en', // optional (default english)
+        requestedPermissions: [
+          {
+            streamId: '*',
+            level: 'read'
+          },
+          {
+            streamId: 'diary',
+            defaultName: 'Diary',
+            level: 'contribute'
+          }
+        ],
+        clientData: {
+          'app-web-auth:description': {
+            'type': 'note/txt', 'content': 'I\'m wathcing events and adding notes to diary.'
+          }
+        }
+      }
+    };
+
+    function pryvAuthStateChange(state) { // called each time the authentication state changed
+      logToConsole('##pryvAuthStateChange ' + state.id);
+      if (state.id === Pryv.Browser.AuthStates.AUTHORIZED) {
+        connection = new Pryv.Connection(state.apiEndpoint);
+        logToConsole('# Browser succeeded for user ' + connection.apiEndpoint);
+        initializeSocket(connection);
+      }
+      if (state.id === Pryv.Browser.AuthStates.LOGOUT) {
+        connection = null;
+        logToConsole('# Logout');
+      }
+    }
+
+    function createNoteEvent() {
+      connection.api([{
+        method: 'events.create',
+        params: {
+          streamId: 'diary',
+          type: 'note/txt',
+          content: $noteContent.value
+        }
+      }]);
+    }
+
+    function logToConsole(text) {
+      $console.value += text + '\n';
+      $console.scrollTop = $console.scrollHeight;
+    }
+
+    var serviceInfoUrl = 'https://reg.pryv.li/service/info';
+
+    // --- socket.io specific
+    (async function () {
+      PryvSocket(Pryv); // patch Pryv with Socket.io capabilities
+      var service = await Pryv.Browser.setupAuth(authSettings, serviceInfoUrl);
+    })();
+
+    async function initializeSocket() {
+      const conn = connection;
+      try {
+        console.log('Connection');
+        await conn.socket.open();
+        conn.socket.on('eventsChanged', async () => {
+          logToConsole('Socket Received "eventsChanged" message');
+          let res = await conn.socket.api([
+            { 
+              method: 'events.get', 
+              params: { limit: 1 } 
+            }]);
+          logToConsole('Last event' + JSON.stringify(res[0], null, 2));
+        });
+
+      } catch (e) {
+        logToConsole('Error >>>>>>' + e.message);
+      }
+    };
+  </script>
+
+
+</body>
+
+</html>

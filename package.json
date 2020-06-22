@@ -4,7 +4,8 @@
   "description": "Extends `pryv` package with socket.io transport",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --reporter spec  test/*.test.js"
+    "test": "mocha --reporter spec  test/*.test.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,9 @@
     "chai": "^4.2.0",
     "cuid": "^2.1.8",
     "mocha": "^8.0.1",
-    "pryv": "file:../lib-js"
+    "pryv": "^2.0.3",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "socket.io-client": "^2.3.0"
