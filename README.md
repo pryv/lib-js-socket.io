@@ -19,18 +19,12 @@ require('@pryv/socket.io')(Pryv);
 
 ### Browser
 
+Note: `pryv-socket.io.js` must be loaded **after** `pryv.js`
+
 
 ```html
 <script src="https://api.pryv.com/lib-js/pryv.js"></script>
-<script src="https://api.pryv.com/lib-js-socket.io/pryv.jspryv-socket.io.js"></script>
-
-<script>
-(function () { 
-	// the following line "patches" Pryv with PryvSocket capabilities 
-  PryvSocket(Pryv); 
-})();
-</script>
-
+<script src="https://api.pryv.com/lib-js-socket.io/pryv-socket.io.js"></script>
 ```
 
 ## Usage
@@ -77,14 +71,12 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 
 ```html
 <script src="https://api.pryv.com/lib-js/pryv.js"></script>
-<script src="https://api.pryv.com/lib-js-socket.io/pryv.jspryv-socket.io.js"></script>
+<script src="https://api.pryv.com/lib-js-socket.io/pryv-socket.io.js"></script>
 
 
 <script>
 const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 (async function () { 
-	// the following line "patches" Pryv with PryvSocket capabilities 
-  PryvSocket(Pryv); 
   try {
     await conn.socket.open();
     conn.socket.on('eventsChanged', async () => {

@@ -4,7 +4,7 @@
 <head>
   <title>Pryv Socket.io - Javascript</title>
   <script src="https://api.pryv.com/lib-js/pryv.js"></script>
-  <script src="https://api.pryv.com/lib-js-socket.io/pryv-socket.io.js"></script>
+  <script src="/dist/pryv-socket.io.js"></script>
 </head>
 
 <body>
@@ -80,7 +80,6 @@
 
     // --- socket.io specific
     (async function () {
-      PryvSocket(Pryv); // patch Pryv with Socket.io capabilities
       var service = await Pryv.Browser.setupAuth(authSettings, serviceInfoUrl);
     })();
 
