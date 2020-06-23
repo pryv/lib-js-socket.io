@@ -9,7 +9,7 @@ const conn = new Pryv.Connection(apiEndpoint);
   try {
     console.log('a');
     const s = await conn.socket.open();
-    s.on('eventsChanged', () => {
+    s.on('eventsChanged',async () => {
       console.log('Got eventsChanged');
       const res = await conn.socket.api([{ method: 'events.get', params: {limit: 1 } }]);
       console.log('Last event: ', JSON.stringify(res, null, 2));
