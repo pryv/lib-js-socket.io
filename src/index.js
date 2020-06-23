@@ -5,7 +5,7 @@ const SocketIO = require('./SocketIO');
  * @param {Pryv} Pryv - Pryv lib-js library @see https://github.com/pryv/lib-js
  */
 module.exports = function(Pryv) {
-  console.log('Pryv version', Pryv.version);
+  console.log('lib-js version', Pryv.version);
   // check version here
   if (Pryv.Connection.SocketIO) {
     throw new Error('SocketIO already loaded');

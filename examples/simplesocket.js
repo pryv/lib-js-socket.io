@@ -12,7 +12,7 @@ const conn = new Pryv.Connection(apiEndpoint);
     s.on('eventsChanged', () => {
       console.log('Got eventsChanged');
       const res = await conn.socket.api([{ method: 'events.get', params: {limit: 1 } }]);
-      console.log('Last event: ', res);
+      console.log('Last event: ', JSON.stringify(res, null, 2));
     });
     
   } catch (e) {

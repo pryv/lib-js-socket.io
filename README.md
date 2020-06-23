@@ -4,13 +4,13 @@ Extends Pryv's [lib-js](https://github.com/pryv/lib-js) with socket.io transport
 
 ## Setup
 
-This library extends `Pryv.Connection` instance with a `connection.socket` property. 
+This library extends the `Pryv.Connection` class with a `connection.socket` property.
 
-### Node.js 
+### Node.js
 
 `npm install pryv @pryv/socket.io`
 
-In you project files, one time only. Then the Pryv javascript package will be "patched" with socket.io capabilities. 
+In you project files, load it **one time only**. The Pryv javascript package will be patched with socket.io capabilities.
 
 ```javascript
 const Pryv = require('pryv');
@@ -29,18 +29,18 @@ Note: `pryv-socket.io.js` must be loaded **after** `pryv.js`
 
 ## Usage
 
-Once Socket.io has been setup `Pryv.Connection` instances expose `.socket`
+Once Socket.io has been setup, `Pryv.Connection` instances expose the `.socket` property.
 
-- `conn.socket.open()` is an asynchronous call that open the socket.io connection. It throws Errors on failures.
+- `Connection.socket.open()` is an asynchronous call that opens the socket.io connection. It throws errors on failure.
 
-- `conn.socket.api()` is identical to `conn.api()` using the socket.io transport [lib-js:API calls](https://github.com/pryv/lib-js#api-calls)
+- `Connection.socket.api()` is identical to `Connection.api()` using the socket.io transport [lib-js:API calls](https://github.com/pryv/lib-js#api-calls)
 
-- `conn.socket.on({event-name}, callback)` registers an event listener.
+- `Connection.socket.on({event-name}, callback)` registers an event listener.
 
   Possible `event-name` values are:
 
-  - `eventsChanged` :  Fired when on or multiples events are deleted, changed or added.
-  - `streamsChanged`: Fired when on or multiples streams are deleted, changed or added.
+  - `eventsChanged` :  Fired when one or multiples events are deleted, changed or added.
+  - `streamsChanged`: Fired when one or multiples streams are deleted, changed or added.
   - `accessChanged`: Fired when an access is deleted or added.
   - `error`: Fired on error. The callback will eventually receive the error as first argument.
 
@@ -59,7 +59,7 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
     await conn.socket.open();
     conn.socket.on('eventsChanged', async () => {
       const res = await conn.socket.api([{method: 'events.get', params: {limit: 2}}]);
-    	console.log('Last 2 events: ', res);
+    	console.log('Last 2 events: ', JSON.stringify(res, null, 2));
     });
   } catch (e) {
     console.log('An error occured: ', e.message);
@@ -81,7 +81,7 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
     await conn.socket.open();
     conn.socket.on('eventsChanged', async () => {
       const res = await conn.socket.api([{method: 'events.get', params: {limit: 2}}]);
-    	console.log('Last 2 events: ', res);
+    	console.log('Last 2 events: ', JSON.stringify(res, null, 2));
     });
   } catch (e) {
     console.log('An error occured: ', e.message);
