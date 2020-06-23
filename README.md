@@ -86,7 +86,7 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
   } catch (e) {
     console.log('An error occured: ', e.message);
   }
-});
+})();
 </script>
 ```
 
