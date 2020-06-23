@@ -59,7 +59,7 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
     await conn.socket.open();
     conn.socket.on('eventsChanged', async () => {
       const res = await conn.socket.api([{method: 'events.get', params: {limit: 2}}]);
-    	console.log('Last 2 events: ', res);
+    	console.log('Last 2 events: ', JSON.stringify(res, null, 2));
     });
   } catch (e) {
     console.log('An error occured: ', e.message);
@@ -81,7 +81,7 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
     await conn.socket.open();
     conn.socket.on('eventsChanged', async () => {
       const res = await conn.socket.api([{method: 'events.get', params: {limit: 2}}]);
-    	console.log('Last 2 events: ', res);
+    	console.log('Last 2 events: ', JSON.stringify(res, null, 2));
     });
   } catch (e) {
     console.log('An error occured: ', e.message);
