@@ -105,7 +105,7 @@
 
   // --- socket.io specific
   (async function () {
-    const serviceInfoUrl = Pryv.serviceInfoFromUrl() || 'https://reg.pryv.me/service/info';
+    const serviceInfoUrl = Pryv.Browser.serviceInfoFromUrl() || 'https://reg.pryv.me/service/info';
     var service = await Pryv.Browser.setupAuth(authSettings, serviceInfoUrl);
   })();
 
