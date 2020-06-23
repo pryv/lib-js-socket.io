@@ -7,7 +7,6 @@ const conn = new Pryv.Connection(apiEndpoint);
 
 (async () => { 
   try {
-    console.log('a');
     const s = await conn.socket.open();
     s.on('eventsChanged',async () => {
       console.log('Got eventsChanged');
