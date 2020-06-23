@@ -101,11 +101,11 @@
   }
 
   // following the APP GUIDELINES: https://api.pryv.com/guides/app-guidelines/
-  const urlParams = new URLSearchParams(window.location.search);un build
-  const serviceInfoUrl = urlParams.get('pryvServiceInfoUrl') || 'https://reg.pryv.me/service/info';
+  
 
   // --- socket.io specific
   (async function () {
+    const serviceInfoUrl = Pryv.serviceInfoFromUrl() || 'https://reg.pryv.me/service/info';
     var service = await Pryv.Browser.setupAuth(authSettings, serviceInfoUrl);
   })();
 
