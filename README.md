@@ -90,3 +90,11 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 </script>
 ```
 
+## Contribute
+
+*Prerequisites*: Node 12
+
+- Setup: `npm run setup`
+- Build pryv.js library for browsers: `npm run build`, the result is published in `./dist`
+- Node Tests: `npm run test`
+

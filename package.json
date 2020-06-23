@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --reporter spec  test/*.test.js",
+    "setup": "./scripts/setup-environment-dev.sh",
     "build": "webpack"
   },
   "repository": {
