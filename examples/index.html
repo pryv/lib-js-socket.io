@@ -61,7 +61,7 @@
       ],
       clientData: {
         'app-web-auth:description': {
-          'type': 'note/txt', 'content': 'I\'m wathcing events and adding notes to diary.'
+          'type': 'note/txt', 'content': 'I\'m watching events and adding notes to diary.'
         }
       }
     }
@@ -71,7 +71,7 @@
     logToConsole('##pryvAuthStateChange ' + state.id);
     if (state.id === Pryv.Browser.AuthStates.AUTHORIZED) {
       connection = new Pryv.Connection(state.apiEndpoint);
-      logToConsole('# Browser succeeded for user ' + connection.apiEndpoint);
+      logToConsole('# Auth succeeded for user ' + connection.apiEndpoint);
       initializeSocket(connection);
     }
     if (state.id === Pryv.Browser.AuthStates.LOGOUT) {
