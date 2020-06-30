@@ -1,6 +1,6 @@
 {
   "name": "@pryv/socket.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extends `pryv` package with socket.io transport",
   "main": "src/index.js",
   "scripts": {
@@ -18,7 +18,8 @@
   "keywords": [
     "Pryv",
     "Pryv.io",
-    "Socket.io"
+    "Socket.io",
+    "WebSockets"
   ],
   "author": "Pryv S.A.",
   "license": "BSD-3-Clause",
@@ -26,7 +27,7 @@
     "chai": "^4.2.0",
     "cuid": "^2.1.8",
     "mocha": "^8.0.1",
-    "pryv": "^2.0.3",
+    "pryv": "^2.0.4",
     "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git"
   },
   "dependencies": {
