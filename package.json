@@ -28,7 +28,7 @@
     "cuid": "^2.1.8",
     "mocha": "^8.0.1",
     "pryv": "^2.0.4",
-    "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git"
+    "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git#1.0.1"
   },
   "dependencies": {
     "socket.io-client": "^2.3.0"

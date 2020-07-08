@@ -17,7 +17,7 @@ module.exports = [
 	{ // es5 
 		mode: 'production',
 		entry: {
-			'pryv-socket.io': './src/browser-index.js'
+			'pryv-socket.io': ['core-js/stable','./src/browser-index.js']
 		},
 		output: {
 			filename: '[name].js',
