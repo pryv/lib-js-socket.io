@@ -112,7 +112,6 @@
   async function initializeSocket() {
     const conn = connection;
     try {
-      console.log('Connection');
       await conn.socket.open();
       conn.socket.on('eventsChanged', async () => {
         logToConsole('Socket Received "eventsChanged" message');
