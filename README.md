@@ -96,9 +96,9 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 </script>
 ```
 
-### Example web app
+### Example web app
 
-![ScreenShot](https://raw.githubusercontent.com/pryv/lib-js-socket.io/master/examples/screenshot.png?token=AAD5VZT6JTNCWXZMA5LGNDK7ASAW6)
+![Screenshot](examples/screenshot.png)
 
 The `./examples/index.html` file is a simple demo app that allows to log in a Pryv.io platform, register to monitor events changes and create notes. 
 
