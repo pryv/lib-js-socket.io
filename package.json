@@ -1,10 +1,10 @@
 {
   "name": "@pryv/socket.io",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Extends `pryv` package with socket.io transport",
   "main": "src/index.js",
   "scripts": {
-    "test": "mocha --reporter spec  test/*.test.js",
+    "test": "mocha --reporter spec --exit test/*.test.js",
     "setup": "./scripts/setup-environment-dev.sh",
     "build": "webpack"
   },
@@ -24,13 +24,13 @@
   "author": "Pryv S.A.",
   "license": "BSD-3-Clause",
   "devDependencies": {
+    "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git#1.0.2",
     "chai": "^4.2.0",
     "cuid": "^2.1.8",
-    "mocha": "^8.0.1",
-    "pryv": "^2.0.4",
-    "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git#1.0.1"
+    "mocha": "^8.2.1",
+    "pryv": "^2.1.2"
   },
   "dependencies": {
-    "socket.io-client": "^2.3.0"
+    "socket.io-client": "^2.3.1"
   }
 }

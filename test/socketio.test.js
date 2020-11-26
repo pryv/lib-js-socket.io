@@ -55,7 +55,7 @@ describe('SocketIO', function () {
       try {
         const res = await conn.socket.open();
       } catch (e) {
-        return expect(e.message).to.equals('Cannot find access from token.');
+        return expect(e.response.text).to.include('Cannot find access from token.');
       }
       throw new Error('Should throw an error');
     });

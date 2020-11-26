@@ -79,7 +79,6 @@ const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 <script src="https://api.pryv.com/lib-js/pryv.js"></script>
 <script src="https://api.pryv.com/lib-js-socket.io/pryv-socket.io.js"></script>
 
-
 <script>
 const apiEndpoint = 'https://{token}@my-computer.rec.la:4443/{username}/';
 (async function () { 
