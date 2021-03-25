@@ -1,6 +1,6 @@
 {
   "name": "@pryv/socket.io",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Extends `pryv` package with socket.io transport",
   "main": "src/index.js",
   "scripts": {
