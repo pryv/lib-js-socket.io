@@ -25,12 +25,12 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@pryv/lib-js-common": "git+https://github.com/pryv/lib-js-common.git#1.0.4",
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "cuid": "^2.1.8",
-    "mocha": "^8.2.1",
+    "mocha": "^8.4.0",
     "pryv": "^2.1.7"
   },
   "dependencies": {
-    "socket.io-client": "^2.3.1"
+    "socket.io-client": "^2.4.0"
   }
 }
