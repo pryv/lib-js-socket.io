@@ -1,6 +1,6 @@
 {
   "name": "@pryv/socket.io",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Extends `pryv` package with socket.io transport",
   "main": "src/index.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "chai": "^4.2.0",
     "cuid": "^2.1.8",
     "mocha": "^8.2.1",
-    "pryv": "^2.1.2"
+    "pryv": "^2.1.7"
   },
   "dependencies": {
     "socket.io-client": "^2.3.1"
