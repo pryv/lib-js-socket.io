@@ -1,5 +1,4 @@
 const io = require('socket.io-client');
-const { resolve } = require('path');
 const { EventEmitter } = require('events');
 
 const EVENTS = ['eventsChanged', 'streamsChanged', 'accessesChanged', 'disconnect', 'error'];
