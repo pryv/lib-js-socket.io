@@ -1,3 +1,7 @@
+**⚠️ This add-on is now part of [the main library's repository](https://github.com/pryv/lib-js). This repository is kept as archive for now.**
+
+---
+
 # Socket.io add-on for Pryv lib-js
 
 Extends Pryv's [lib-js](https://github.com/pryv/lib-js) with socket.io transport and notifications.
